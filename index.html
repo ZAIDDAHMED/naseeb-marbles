@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nasseb Marbles</title>
+  <meta name="description" content="Nasseb Marbles - premium marble stone and construction materials for homes and projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f3ee;
+      --panel: #ffffff;
+      --primary: #7a4d2a;
+      --primary-dark: #4d2a18;
+      --accent: #d9b07d;
+      --text: #2a221f;
+      --muted: #6d5d54;
+      --shadow: rgba(35, 23, 18, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #f7f3ee 0%, #f0e9e0 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(122, 77, 42, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.96rem;
+      color: var(--muted);
+    }
+
+    nav a:hover { color: var(--primary); }
+
+    .cta-btn, .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.9rem 1.5rem;
+      transition: 0.2s ease;
+      font-weight: 600;
+    }
+
+    .cta-btn {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 12px 24px rgba(122, 77, 42, 0.18);
+    }
+
+    .cta-btn:hover { background: var(--primary-dark); }
+
+    .secondary-btn {
+      border: 1px solid rgba(122, 77, 42, 0.2);
+      background: rgba(255,255,255,0.45);
+      color: var(--primary-dark);
+    }
+
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(217, 176, 125, 0.15);
+      color: var(--primary-dark);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .brand-tag {
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 0.96;
+      margin: 0 0 16px;
+      color: var(--primary-dark);
+    }
+
+    h1 {
+      font-size: clamp(3.1rem, 5vw, 5.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .feature-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .feature-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.5);
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(122, 77, 42, 0.08);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .photo-card {
+      position: absolute;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px var(--shadow);
+      background: var(--panel);
+    }
+
+    .photo-card.main {
+      width: min(100%, 480px);
+      height: 500px;
+      right: 0;
+      top: 0;
+    }
+
+    .photo-card.secondary {
+      width: 220px;
+      height: 180px;
+      left: 0;
+      bottom: 20px;
+      border: 8px solid rgba(255,255,255,0.8);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .stats {
+      position: absolute;
+      right: 26px;
+      top: 20px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(35, 23, 18, 0.1);
+      padding: 18px 20px;
+      width: 180px;
+    }
+
+    .stats strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .section {
+      padding: 40px 0 80px;
+    }
+
+    .section-head {
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.7);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 16px 30px rgba(35, 23, 18, 0.04);
+      border: 1px solid rgba(122, 77, 42, 0.06);
+    }
+
+    .icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(122,77,42,0.12), rgba(217,176,125,0.34));
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .product {
+      background: var(--panel);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 30px rgba(35, 23, 18, 0.06);
+    }
+
+    .product img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .product-body {
+      padding: 20px 20px 24px;
+    }
+
+    .product-tag {
+      display: inline-block;
+      background: rgba(217,176,125,0.18);
+      color: var(--primary-dark);
+      border-radius: 999px;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      font-size: 2.1rem;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about .panel {
+      background: rgba(255,255,255,0.7);
+      padding: 28px 26px;
+      border-radius: 26px;
+      box-shadow: 0 18px 34px rgba(35, 23, 18, 0.05);
+      border: 1px solid rgba(122, 77, 42, 0.06);
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0;
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .about-list li::before {
+      content: "✓";
+      color: var(--primary);
+      margin-right: 8px;
+      font-weight: 700;
+    }
+
+    .contact-wrap {
+      background: linear-gradient(135deg, rgba(122,77,42,0.98), rgba(77,42,24,0.96));
+      color: white;
+      border-radius: 30px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-wrap h2 {
+      color: white;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 16px 18px;
+      border-radius: 16px;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .inquiry-box {
+      background: rgba(255,255,255,0.95);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 18px 40px rgba(35, 23, 18, 0.08);
+      border: 1px solid rgba(122, 77, 42, 0.08);
+    }
+
+    .inquiry-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .inquiry-form input,
+    .inquiry-form textarea,
+    .inquiry-form select {
+      width: 100%;
+      border: 1px solid rgba(122, 77, 42, 0.2);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+    }
+
+    .inquiry-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .inquiry-form button {
+      border: none;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    footer {
+      padding: 24px 0 36px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      box-shadow: 0 18px 30px rgba(37, 211, 102, 0.35);
+      z-index: 999;
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .hero-grid,
+      .about,
+      .contact-wrap,
+      .cards,
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark">N</div>
+        <div>
+          <span>Nasseb Marbles</span><br>
+          <span class="brand-tag">Stone & Design</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta-btn" href="#contact">Request a Quote</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Luxury marble solutions</div>
+          <h1>Premium marble for elegant living and lasting value.</h1>
+          <p class="lead">
+            Nasseb Marbles supplies high-quality marble, granite, and natural stone for residential,
+            commercial, and construction projects—combining craftsmanship, durability, and design excellence.
+          </p>
+          <div class="hero-actions">
+            <a class="cta-btn" href="#products">Explore Collection</a>
+            <a class="secondary-btn" href="#contact">Book a Consultation</a>
+          </div>
+          <div class="feature-row">
+            <div class="feature-pill">✔ Premium natural stone</div>
+            <div class="feature-pill">✔ Custom fabrication</div>
+            <div class="feature-pill">✔ Fast delivery</div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="photo-card main">
+           <img src="./images/intro.jpeg" alt="Marble Hero Banner">
+          </div>
+        </div>
+          <div class="stats">
+            <strong>15+</strong>
+            <span>Years of trusted stone expertise</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Our strengths</div>
+          <h2>Stone solutions designed for quality and comfort</h2>
+          <p>We provide elegant marble and natural stone products that deliver lasting beauty for homes, interiors, and large-scale construction projects.</p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="icon-box">✦</div>
+            <h3>Luxury Marble</h3>
+            <p>Premium marble for flooring, walls, staircases, and statement interiors that stand out with elegance.</p>
+          </div>
+          <div class="card">
+            <div class="icon-box">▣</div>
+            <h3>Granite & Stone</h3>
+            <p>Durable natural stone crafted for kitchens, exteriors, facades, and high-traffic commercial areas.</p>
+          </div>
+          <div class="card">
+            <div class="icon-box">⚑</div>
+            <h3>Project Support</h3>
+            <p>Expert guidance, precise measurements, and dependable supply for contractors, designers, and homeowners.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Selected craftsmanship</div>
+          <h2>Carved marble made for meaningful spaces</h2>
+        </div>
+
+        <div class="products">
+          <article class="product">
+            <img src="./images/tulsi.jpeg" alt="Hand-carved white marble pedestal with floral details" />
+            <div class="product-body">
+              <span class="product-tag">Custom carving</span>
+              <h3>Carved Marble Pedestal</h3>
+              <p>Detailed hand-carved work with ornamental borders and sculpted columns.</p>
+            </div>
+          </article>
+
+          <article class="product">
+            <img src="./images/mandir.jpeg" alt="Ornate white marble mandir against a deep teal wall" />
+            <div class="product-body">
+              <span class="product-tag">Mandir</span>
+              <h3>Carved Marble Mandir</h3>
+              <p>A decorative marble shrine featuring an ornate arch and intricate carving.</p>
+            </div>
+          </article>
+
+          <article class="product">
+            <img src="./images/wall.jpeg" alt="Illuminated marble wall panel with a carved tree of life" />
+            <div class="product-body">
+              <span class="product-tag">Wall art</span>
+              <h3>Tree of Life Panel</h3>
+              <p>A carved marble feature panel framed with warm lighting and decorative detailing.</p>
+            </div>
+          </article>
+
+          <article class="product">
+            <img src="./images/gurudwara.jpeg" alt="White carved marble architectural entrance with an ornate arch" />
+            <div class="product-body">
+              <span class="product-tag">GURUDWARA SAHIB</span>
+              <h3>Carved Marble Entrance</h3>
+              <p>An ornamental entrance with carved arches, columns, and detailed marble borders.</p>
+            </div>
+          </article>
+
+          <article class="product">
+            <img src="./images/imagemimber.jpeg" alt="White marble prayer niche with a carved arch and stepped platform" />
+            <div class="product-body">
+              <span class="product-tag">MOSQUE</span>
+              <h3>Marble Prayer Niche</h3>
+              <p>A devotional interior feature with a carved arch and stepped marble platform.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about">
+        <div>
+          <div class="eyebrow">Who we are</div>
+          <h2>Trusted marble specialists for beautiful spaces</h2>
+          <p class="lead">Nasseb Marbles is committed to delivering premium natural stone that balances elegance, strength, and value. We work with homeowners, architects, contractors, and developers to bring the right material to every project.</p>
+        </div>
+
+        <div class="panel">
+          <h3>Why clients choose Nasseb</h3>
+          <ul class="about-list">
+            <li>Extensive selection of marble, granite, and natural stone</li>
+            <li>Reliable sourcing for residential and commercial work</li>
+            <li>Professional guidance on design, finish, and sizing</li>
+            <li>Strong customer support from selection to delivery</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-wrap">
+          <div>
+            <div class="eyebrow" style="background: rgba(255,255,255,0.12); color: white;">Get in touch</div>
+            <h2>Bring elegance to your next project.</h2>
+            <p style="color: rgba(255,255,255,0.8); margin: 0; max-width: 560px;">
+              Whether you are designing a luxury residence, commercial space, or large construction project, we can help you choose the perfect marble and stone finish.
+            </p>
+          </div>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <strong>Phone / WhatsApp</strong>
+              <a href="https://wa.me/919588010003?text=Hello%20Nasseb%20Marbles%2C%20I%20want%20to%20know%20more%20about%20your%20products." target="_blank" rel="noopener">+91 95880 10003</a>
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong>
+              info@nassebmarbles.com
+            </div>
+            <div class="contact-item">
+              <strong>Location</strong>
+              india , aadarsh nagar gali no 1 near royal convent school makrana (didwana-kuchaman) 341505 rajasthan
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="inquiry-box">
+          <div class="section-head" style="margin-bottom: 20px;">
+            <div class="eyebrow">Inquiry form</div>
+            <h2>Send your requirement directly on WhatsApp</h2>
+          </div>
+
+          <form class="inquiry-form" id="whatsappForm">
+            <input type="text" id="name" placeholder="Your name" required />
+            <input type="tel" id="phone" placeholder="Phone number" required />
+            <select id="service" required>
+              <option value="">Select service</option>
+              <option value="Marble Supply">Marble Supply</option>
+              <option value="Granite & Stone">Granite & Stone</option>
+              <option value="Custom Fabrication">Custom Fabrication</option>
+              <option value="Project Consultation">Project Consultation</option>
+            </select>
+            <textarea id="message" placeholder="Tell us about your requirement" required></textarea>
+            <button type="submit" class="cta-btn">Send Inquiry on WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Nasseb Marbles. All rights reserved.
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/919588010003?text=Hello%20Nasseb%20Marbles%2C%20I%20want%20to%20know%20more%20about%20your%20products." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">✆</a>
+
+  <script>
+    const form = document.getElementById('whatsappForm');
+    const phoneNumber = '919588010003';
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !phone || !service || !message) {
+        alert('Please fill in all fields before sending.');
+        return;
+      }
+
+      const text = encodeURIComponent(
+        `Hello Nasseb Marbles,\n\nName: ${name}\nPhone: ${phone}\nService: ${service}\nRequirement: ${message}`
+      );
+
+      window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+    });
+  </script>
+</body>
+</html>
